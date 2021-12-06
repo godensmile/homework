@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자가진단표</title>
+<style>
+	
+
+	.blurText {
+	text-decoration-line: none;
+	color : blue; font-size : 20px; 
+	text-shadow : 3px 3px 5px skyBlue;
+}
+ .clearfix{
+    	font-size: 12pt;
+    	font-family: 'PT Sans', Arial, Sans-serif;
+    	position: relative;
+    }
+    .clearfix ul{
+    	padding: 0;
+    	margin: 0 auto;
+    	width: auto;
+    }
+    .clearfix li{
+    }
+    .clearfix a{
+    	line-height: 50px;
+      height: 50px;
+    }
+    .clearfix li a{
+    	box-sizing: border-box;
+    	-moz-box-sizing: border-box;
+    	-webkit-box-sizing: border-box;
+    }
+    .clearfix li:last-child a{
+    	border-right: 0;
+        }
+   .clearfix a:hover, nav a:active{
+    }
+   .clearfix a#pull{
+    	display: none;
+    }
+    .clearfix ul{
+        /*list-style-type: none;*/
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+        text-align: center;
+      }
+      .clearfix li{
+        /*position: relative;*/
+        display: inline-block;
+      }
+      .clearfix li a{
+        color: #FFFFFF;
+        text-align: center;
+        padding: 14.5px 16px;
+        text-decoration: none;
+      }
+      .clearfix li a:hover{
+        /*color: #597812;*/
+        color: #FFD400;
+        font-weight:normal;
+      }
+      .menu {
+       width: 5000px;
+       height: 50px;
+       text-align: center;
+       max-width: 100%;
+       background-position: center;
+       background-size: cover;
+       background-color: #333333;color: white;
+       position: absolute;z-index: 1;
+     }
+
+img{float : right;}
+img{margin: 10px;}
+
+.scroll { overflow : auto; }
+
+html, body { margin: 0; padding: 0; height: 100%; }
+.header {
+	width: 100%; height: 5%; 
+	background: rgb(0, 0, 0);
+}
+.section {
+	padding-left : 1%;
+	width: 74%; height: 80%; float: left;
+	background: rgb(245, 245, 245);
+}
+.aside {
+	width: 25%; height: 80%; float: left;
+	background: rgb(240, 240, 240);
+}
+.footer { 
+	width: 100%; height: 15%; clear: both; 
+	background: rgb(235, 235, 235);
+}
+ul li {list-style-type : none; float:left; margin-left:50px}
+</style>
+<script>	
+function changed() {
+	var spanArray = document.getElementsByTagName("span");
+	for(var i=0; i<spanArray.length; i++) {
+		var span = spanArray[i];
+		span.style.color = "red";
+		span.style.fontSize = "20px";
+	}
+}
+
+	function loa(URL) {
+	window.open(URL, "myWin", "left=300,top=300,width=400,height=300");
+}
+
+	var files = ["./제주도1.PNG",
+				"./제주도2.PNG",
+				"./제주도3.PNG",
+				"./제주도4.PNG",
+				"./제주도5.PNG",
+				"./제주도6.PNG",
+				"./제주도7.PNG"];
+var imgs = new Array();
+for(var i=0; i<files.length; i++) {
+	imgs[i] = new Image(); // 이미지 객체 생성
+	imgs[i].src = files[i]; // 이미지 미리 로딩
+}
+
+// 다음 이미지 출력
+var next = 1;
+function change(img) {
+	img.src = imgs[next].src; // 이미지 변경
+	next++; // 다음 이미지 인덱스
+	next %= imgs.length; // 개수를 넘으면 처음으로
+}
+	function load() {
+		var select = document.getElementById("site");
+		window.location=select.options[select.selectedIndex].value;
+	}
+
+	function count_check() {
+	var cnt = 0;
+	for(i=0; i < my_form.mycheck.length; i++) {
+		if(my_form.mycheck[i].checked) cnt++;
+	}
+	alert(cnt);
+	alert("3개이하 - 코로나 감염 위험이 낮음" + "\n" + "4~7개 - 자가격리 권고" + "\n" + "8개이상 - 검사필요")
+}	
+
+function report() {
+            var msg = "다음 여행지를 선택하셨습니다.\n";
+            var checkBoxes = document.getElementsByName("country");
+
+            for (var i = 0; i < checkBoxes.length; i++) {
+                if (checkBoxes[i].checked) {
+                    msg += ("- " + checkBoxes[i].value + "\n");
+                }
+            }
+
+            alert(msg);
+        }
+</script>
+</head>
+<body>
+	
+	<header class="header" >
+		<div class="menu" >
+			<nav class="clearfix">
+			  <ul>
+				<li><a href="#first">자가진단 표</a></li> <!--""<-여기 부분에 URL 작성하면 됨-->
+				<li><a href="file:///C:/Users/userpce/Desktop/%EA%B3%BC%EC%A0%9C/%EA%B3%BC%EC%A0%9C1.html">해외여행</a></li>
+				<li><a href="file:///C:/Users/userpce/Desktop/%EA%B3%BC%EC%A0%9C/%EA%B3%BC%EC%A0%9C2.html">국내여행</a></li>
+			</ul>
+		  </nav>
+		  </div>
+		
+		
+		
+		
+	</header>
+	
+	<section class="section scroll" >
+		
+	<h1 id="first"><legend>자가진단 표</legend></h1>
+		<form name='my_form'><fieldset>
+			<label><input  type='checkbox' name='mycheck' value='1' />취약요인(65세이상, 당뇨, 만성질환자, 암환자, 고도비만, 임산부, 투석환자, 흡연자)중 하나 이상에 해당된다.</label><br><br>
+			<label><input  type='checkbox' name='mycheck' value='2' />코로나 전파 가능성이 높은 곳에서 일한다.(의료기관, 요양시설, 학교, 학원, 어린이집종사자, 서비스업, 기숙사거주자, 군입생활자)</label><br><br>
+			<label><input  type='checkbox' name='mycheck' value='3' />지하등 환기가 어려운 밀폐된 공간에 방문한다.</label><br><br>
+			<label><input  type='checkbox' name='mycheck' value='4' />다른 사람과 2M거리두기가 어려운 곳에 간다.</label><br><br>
+			<label><input  type='checkbox' name='mycheck' value='5' />100명 이상 밀집한 장소에 간다.</label><br><br>
+			<label><input  type='checkbox' name='mycheck' value='6' />손씻기, 소독 등 방역 수칙을 지키기 어려운 곳에 간다.</label><br><br>
+			<label><input  type='checkbox' name='mycheck' value='7' />노래부르기, 구호회치기, 등 침방울이 많이 생기는 행동을 한다.</label><br><br>
+			<label><input  type='checkbox' name='mycheck' value='8' />마스크 착용이 어려운 활동을 한다.</label><br><br>
+			<label><input  type='checkbox' name='mycheck' value='9' />다른 사람과 1시간 이상 함께 활동을 한다.</label><br><br>
+			<label><input  type='checkbox' name='mycheck' value='10' />여러 사람이 이용하는 물건을 공유하는 활동을 한다.</label><br><br>
+			<br>
+		</form>
+		<input type='button' onclick='count_check();' value='체크 수 확인' />
+		</fieldset>
+		
+	</section>
+	
+	<aside class="aside scroll"><h1><div style="text-align:center">위드코로나 관련 퀴즈</div></h1>
+	<p class = "scroll">
+	<details>
+		<summary><strong>Q1. KF94 마스크가 크면 입자 차단 성능이 떨어질 수 있다?</strong></summary>
+		<p>A. O 한국소비자원이 KF94 마스크 9개 제품의 세부치수를 조사한 결과, 제품 간 가로길이는 최대 42mm, 세로길이는 최대 17mm 차이가 있는 것으로 나타났습니다. 마스크가 얼굴에 비해 크면 틈이 벌어져 입자 차단 성능이 떨어질 수 있으므로 본인의 얼굴 특성에 맞는 제품을 선택하여 사용하는 것이 좋겠습니다.</p>
+	 </details>
+	 <hr>
+	 <details>
+		<summary><strong>Q2. 피부적외선체온계는 정확한 온도 측정이 가능하다?</strong></summary>
+		<p>A. X 피부적외선체온계는 측정 거리가 멀어질수록 정확도가 떨어지므로, 정확한 체온 측정을 위해 제조사별로 권장하는 측정 위치와 거리를 준수해야 합니다. 한국소비자원이 피부적외선체온계 10개 제품의 사용 편의성을 시험·평가한 결과, 8개 제품은 거리 인식 센서가 없어 정확한 측정 거리를 지키기 위해서는 소비자의 주의가 필요했습니다.</p>
+	 </details>
+	 <hr>
+	  <details>
+		<summary><strong>Q3. '위드 코로나'란?</strong></summary>
+		<p>A. 코로나19의 완전한 종식을 기대하기보다는 백신접종을 늘리는 등의 방역체계를 구축하여 '코로나 19'와의 공존을 준비해야 한다는 개념</p>
+	 </details>
+	 <hr>
+	 <details>
+		<summary><strong>Q4. 구리향균필름, 100%안전하다?</strong></summary>
+		<p>A. X 코로나 바이허스는 구리 표면에서 4시간뒤에 사라진다는 연구결과가 있습니다. 즉, 4시간동안 생존이 가능하며 구리판이 아닌 필름 형태의 제품이 바이러스를 억제하는 효과가 있는지도 연구가 필요합니다. </p>
+	 </details>
+	 <hr>
+	 <details>
+		<summary><strong>Q5. 코로나 바이러스는 눈을 통해서도 감염이 된다?</strong></summary>
+		<p>A. O 코로나 바이러스는 눈, 코, 입 점막을 통해 침투할 수 있습니다. 환자의 비말이 눈에 직접 들어가거나 바이러스에 오염된 손으로 눈을 비빌 때 감염이 될 수 있습니다. 눈을 통한 감염이 염려된다면 식염수로 눈을 세척하는것이 도움이 될 수 있습니다.</p>
+	 </details>
+	 <hr>
+	 <details>
+		<summary><strong>Q6. 실내 공기 중에 소독제를 분사하면 예방 효과가 있다?</strong></summary>
+		<p>A. X 실내 공간에서 허공에 소독제를 분사하는 것은 효과가 없고 오히려 눈, 호흡기, 피부건강에 악영향을 미칠 수 있습니다. 실내 공간을 소독하고 싶다면 곰팡이제거제, 락스 등을 물에 희석해 만든 소독 용액을 천에 묻혀 물체 표면을 직접 닦아내는 방법이 훨씬 효과적입니다.</p>
+	 </details>
+	 <hr>
+	 <details>
+		<summary><strong>Q7. '트래블 버블'이란?</strong></summary>
+		<p>A. 여행 안전 권역을 뜻하는 말입니다. 상대 국가와 협정을 맺어 해당 국가의 관광객이나 여행객에 대해 격리조치를 면제하는 것을 뜻입니다.</p>
+	 </details>
+	</p>
+	</aside>
+	
+	<footer class="footer"><h1>코로나를 대비 여행물품</h1>
+		
+		<ul>
+		<li><strong>마스크</strong>
+		<select id="site">
+			<option value="http://browse.gmarket.co.kr/search?keyword=%EB%A7%88%EC%8A%A4%ED%81%AC" selected>지마켓
+			<option value="http://browse.auction.co.kr/search?keyword=%EB%A7%88%EC%8A%A4%ED%81%AC&itemno=&nickname=&frm=hometab&dom=auction&isSuggestion=No&retry=&Fwk=%EB%A7%88%EC%8A%A4%ED%81%AC&acode=SRP_SU_0100&arraycategory=&encKeyword=%EB%A7%88%EC%8A%A4%ED%81%AC">옥션
+			<option value="https://search.11st.co.kr/Search.tmall?kwd=%25EB%25A7%2588%25EC%258A%25A4%25ED%2581%25AC">11번가
+		</select>
+		<button onclick="load()">웹 사이트 접속</button></li>
+		<li><strong>손소독제</strong>
+		<select id="site">
+			<option value="https://browse.gmarket.co.kr/search?keyword=%EC%86%90%EC%86%8C%EB%8F%85%EC%A0%9C" selected>지마켓
+			<option value="http://browse.auction.co.kr/search?keyword=%EC%86%90%EC%86%8C%EB%8F%85%EC%A0%9C&itemno=&nickname=&frm=hometab&dom=auction&isSuggestion=No&retry=&Fwk=%EC%86%90%EC%86%8C%EB%8F%85%EC%A0%9C&acode=SRP_SU_0100&arraycategory=&encKeyword=%EC%86%90%EC%86%8C%EB%8F%85%EC%A0%9C">옥션
+			<option value="https://search.11st.co.kr/Search.tmall?kwd=%25EC%2586%2590%25EC%2586%258C%25EB%258F%2585%25EC%25A0%259C">11번가
+		</select>
+		<button onclick="load()">웹 사이트 접속</button></li>
+		<li><strong>알코올</strong>
+		<select id="site">
+			<option value="https://browse.gmarket.co.kr/search?keyword=%EC%95%8C%EC%BD%94%EC%98%AC" selected>지마켓
+			<option value="https://browse.auction.co.kr/search?keyword=%EC%95%8C%EC%BD%94%EC%98%AC&itemno=&nickname=&encKeyword=%25EC%2595%258C%25EC%25BD%2594%25EC%2598%25AC&arraycategory=&frm=&dom=auction&isSuggestion=No&retry=">옥션
+			<option value="https://search.11st.co.kr/Search.tmall?kwd=%25EC%2595%258C%25EC%25BD%2594%25EC%2598%25AC">11번가
+		</select>
+		<button onclick="load()">웹 사이트 접속</button></li>
+		<li><strong>자가진단키트</strong>
+			<select id="site">
+				<option value="https://browse.gmarket.co.kr/search?keyword=%EC%BD%94%EB%A1%9C%EB%82%98+%EC%9E%90%EA%B0%80%EC%A7%84%EB%8B%A8%ED%82%A4%ED%8A%B8" selected>지마켓
+				<option value="http://browse.auction.co.kr/search?keyword=%EC%9E%90%EA%B0%80%EC%A7%84%EB%8B%A8%ED%82%A4%ED%8A%B8&itemno=&nickname=&encKeyword=%25EC%259E%2590%25EA%25B0%2580%25EC%25A7%2584%25EB%258B%25A8%25ED%2582%25A4%25ED%258A%25B8&arraycategory=&frm=&dom=auction&isSuggestion=No&retry=">옥션
+				<option value="https://search.11st.co.kr/Search.tmall?kwd=%25EC%259E%2590%25EA%25B0%2580%25EC%25A7%2584%25EB%258B%25A8%25ED%2582%25A4%25ED%258A%25B8">11번가
+			</select>
+			<button onclick="load()">웹 사이트 접속</button></li>
+			<li><strong>구강청결제</strong>
+				<select id="site">
+					<option value="https://browse.gmarket.co.kr/search?keyword=%EA%B5%AC%EA%B0%95%EC%B2%AD%EA%B2%B0%EC%A0%9C" selected>지마켓
+					<option value="http://browse.auction.co.kr/search?keyword=%EA%B5%AC%EA%B0%95%EC%B2%AD%EA%B2%B0%EC%A0%9C&itemno=&nickname=&encKeyword=%25EA%25B5%25AC%25EA%25B0%2595%25EC%25B2%25AD%25EA%25B2%25B0%25EC%25A0%259C&arraycategory=&frm=&dom=auction&isSuggestion=No&retry=">옥션
+					<option value="https://search.11st.co.kr/Search.tmall?kwd=%25EA%25B5%25AC%25EA%25B0%2595%25EC%25B2%25AD%25EA%25B2%25B0%25EC%25A0%259C">11번가
+				</select>
+				<button onclick="load()">웹 사이트 접속</button></li>
+	</ul>
+	</footer>
+</body>
+</html>
